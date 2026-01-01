@@ -1,11 +1,19 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import required modules from the 'modules' directory
-import { Navigation, Pagination, Scrollbar, A11y, Keyboard } from "swiper/modules";
+import {
+  Navigation,
+  Pagination,
+  Scrollbar,
+  A11y,
+  Keyboard,
+} from "swiper/modules";
 
+import { useRef } from "react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
+
 import Image1 from "../tempimage/Image1.jpg";
 import Image2 from "../tempimage/Image2.jpg";
 import Image3 from "../tempimage/Image3.jpg";
@@ -18,6 +26,8 @@ import Image9 from "../tempimage/Image9.jpg";
 import Image10 from "../tempimage/Image10.jpg";
 import Image11 from "../tempimage/Image11.jpg";
 import Image12 from "../tempimage/Image12.jpg";
+import { Link } from "react-router-dom";
+import { keyboard } from "@testing-library/user-event/dist/keyboard";
 
 const tempTrend = {
   page: 1,
@@ -265,7 +275,7 @@ const tempTrend = {
       original_title: "Transformers: Rise of the Beasts",
       overview:
         "A ‘90s globetrotting adventure that introduces the Maximals, Predacons, and Terrorcons to the existing battle on earth between Autobots and Decepticons.",
-      poster_path: "/g1HcrEiN0UiSpjQMJ3Klzw8KOZS.jpg",
+      poster_path: Image6,
       media_type: "movie",
       genre_ids: [28, 12, 878],
       popularity: 161.222,
@@ -283,7 +293,7 @@ const tempTrend = {
       original_title: "Scream",
       overview:
         "Twenty-five years after a streak of brutal murders shocked the quiet town of Woodsboro, a new killer has donned the Ghostface mask and begins targeting a group of teenagers to resurrect secrets from the town’s deadly past.",
-      poster_path: "/4qIV5WXP1xQvpPAHmgVxCmxvPh6.jpg",
+      poster_path: Image7,
       media_type: "movie",
       genre_ids: [27, 9648, 53],
       popularity: 373.035,
@@ -302,7 +312,7 @@ const tempTrend = {
         "Justice League x RWBY: Super Heroes & Huntsmen, Part One",
       overview:
         "Superman, Batman, Wonder Woman, Flash, Cyborg, Green Lantern and Vixen are transported to the strange world of Remnant and find themselves turned into teenagers. Meanwhile, Remnant heroes Ruby, Weiss, Blake and Yang must combine forces with the Justice League to uncover why their planet has been mysteriously altered before a superpowered Grimm destroys everything.",
-      poster_path: "/sjBFnG8DpouuWi161KbjbAER235.jpg",
+      poster_path: Image8,
       media_type: "movie",
       genre_ids: [16, 28, 14],
       popularity: 107.913,
@@ -320,7 +330,7 @@ const tempTrend = {
       original_title: "A Tourist's Guide to Love",
       overview:
         "After an unexpected break up, a travel executive accepts an assignment to go undercover and learn about the tourist industry in Vietnam. Along the way, she finds adventure and romance with her Vietnamese expat tour guide and they decide to hijack the tour bus in order to explore life and love off the beaten path.",
-      poster_path: "/uWkpjbBe4gRZilXRXbYfsMUZMhz.jpg",
+      poster_path: Image9,
       media_type: "movie",
       genre_ids: [10749, 35, 12],
       popularity: 275.635,
@@ -338,7 +348,8 @@ const tempTrend = {
       original_title: "Mighty Morphin Power Rangers: Once & Always",
       overview:
         "After tragedy strikes, an unlikely young hero takes her rightful place among the Power Rangers to face off against the team's oldest archnemesis.",
-      poster_path: "/vc87upO8vcAGj9OmgH3AIz6ikKB.jpg",
+      poster_path: Image11,
+
       media_type: "movie",
       genre_ids: [28, 878, 14],
       popularity: 238.666,
@@ -356,7 +367,7 @@ const tempTrend = {
       original_title: "M3GAN",
       overview:
         "A brilliant toy company roboticist uses artificial intelligence to develop M3GAN, a life-like doll programmed to emotionally bond with her newly orphaned niece. But when the doll's programming works too well, she becomes overprotective of her new friend with terrifying results.",
-      poster_path: "/d9nBoowhjiiYc4FBNtQkPY7c11H.jpg",
+      poster_path: Image8,
       media_type: "movie",
       genre_ids: [878, 27, 35],
       popularity: 724.995,
@@ -374,7 +385,7 @@ const tempTrend = {
       original_title: "Boğa Boğa",
       overview:
         "Evading a scandal, a couple from Istanbul starts over in a town on the Aegean coast — but quickly discover the locals are determined to get rid of them.",
-      poster_path: "/bW7NgAKpP24skkTjmJxNYWjOwdj.jpg",
+      poster_path: Image12,
       media_type: "movie",
       genre_ids: [53, 18],
       popularity: 246.108,
@@ -388,78 +399,296 @@ const tempTrend = {
   total_results: 20000,
 };
 
-function PopularMovie() {
-  return (
-    <div className="px-6 xl:px-10 pt-24 ">
-      <h1 className="text-3xl font-bold pb-9 xl:px-5">Popular Movie</h1>
-      <div>
-        <Swiper
-          spaceBetween={10}
-          slidesPerView={5}
-          onSlideChange={() => console.log("slide change")}
-          modules={[Navigation, Pagination, Scrollbar, Keyboard]}
-          scrollbar={{ draggable: true }}
-          onSwiper={(swiper) => console.log(swiper)}
-          loop={true}
-          keyboard={{ enabled: true }}
-          slidesPerGroup={5}
-          pagination={{
-            clickable: true,
-            dynamicBullets: true,
-          }}
-        >
-          <SwiperSlide>
-            <img src={Image1} alt="person" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src={Image2} alt="person" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src={Image3} alt="person" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src={Image4} alt="person" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src={Image5} alt="person" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src={Image6} alt="person" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src={Image7} alt="person" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src={Image8} alt="person" />
-          </SwiperSlide>
+// console.log(tempTrend.results.length);
 
-          <SwiperSlide>
-            <img src={Image9} alt="person" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src={Image10} alt="person" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src={Image11} alt="person" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src={Image12} alt="person" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src={Image4} alt="person" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src={Image5} alt="person" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src={Image6} alt="person" />
-          </SwiperSlide>
-        </Swiper>
+// function PopularMovie() {
+//   const swiperRef = useRef(null);
+//   return (
+//     <div className="px-6 xl:px-10 pt-24 ">
+//       <h1 className="text-3xl font-bold pb-9 xl:px-5">Popular Movie</h1>
+//       <div className="relative hover:bg-red-400">
+//         <Swiper
+//           spaceBetween={10}
+//           slidesPerView={5}
+//           onSwiper={(swiper) => {
+//             swiperRef.current = swiper;
+//           }}
+//           onSlideChange={() => console.log("slide change")}
+//           modules={[Navigation, Pagination, Keyboard, Scrollbar]}
+//           scrollbar={{ draggable: true }}
+//           loop={true}
+//           keyboard={{ enabled: true }}
+//           slidesPerGroup={5}
+//           pagination={{
+//             clickable: true,
+//             dynamicBullets: true,
+//           }}
+//           //   onSwiper={(swiper) => {
+//           //     swiperRef.current = swiper;
+//           //   }}
+//         >
+//           <SwiperSlide>
+//             <img src={Image1} alt="person" />
+//           </SwiperSlide>
+//           <SwiperSlide>
+//             <img src={Image2} alt="person" />
+//           </SwiperSlide>
+//           <SwiperSlide>
+//             <img src={Image3} alt="person" />
+//           </SwiperSlide>
+//           <SwiperSlide>
+//             <img src={Image4} alt="person" />
+//           </SwiperSlide>
+//           <SwiperSlide>
+//             <img src={Image5} alt="person" />
+//           </SwiperSlide>
+//           <SwiperSlide>
+//             <img src={Image6} alt="person" />
+//           </SwiperSlide>
+//           <SwiperSlide>
+//             <img src={Image7} alt="person" />
+//           </SwiperSlide>
+//           <SwiperSlide>
+//             <img src={Image8} alt="person" />
+//           </SwiperSlide>
+
+//           <SwiperSlide>
+//             <img src={Image9} alt="person" />
+//           </SwiperSlide>
+//           <SwiperSlide>
+//             <img src={Image10} alt="person" />
+//           </SwiperSlide>
+//           <SwiperSlide>
+//             <img src={Image11} alt="person" />
+//           </SwiperSlide>
+//           <SwiperSlide>
+//             <img src={Image12} alt="person" />
+//           </SwiperSlide>
+//           <SwiperSlide>
+//             <img src={Image4} alt="person" />
+//           </SwiperSlide>
+//           <SwiperSlide>
+//             <img src={Image5} alt="person" />
+//           </SwiperSlide>
+{
+  /* <SwiperSlide><img src={Image6} alt="person" /></SwiperSlide>; */
+}
+//         </Swiper>
+//         <div className="absolute inset-0 z-10 flex items-center justify-between">
+//           <button
+//             onClick={() => swiperRef.current?.slidePrev()}
+//             className="bg-white text-black rounded-3xl px-4 py-2 mt-4"
+//           >
+//             Prev Button
+//           </button>
+//           <button
+//             onClick={() => swiperRef.current?.slideNext()}
+//             className="bg-white text-black rounded-3xl px-4 py-2 mt-4"
+//           >
+//             Next Button
+//           </button>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
+
+// function PopularMovie() {
+//   const swiperRef = useRef(null);
+//   return (
+//     <section>
+//       <div className=" px-6 xl:px-10 pt-24">
+//         <h1 className="text-3xl font-bold pb-9 xl:px-5">Popular Movie</h1>
+//         <div>
+//           <Swiper
+//             slidesPerView={5}
+//             slidesPerGroup={5}
+//             loop={true}
+//             pagination={{ dynamicBullets: true, clickable: true }}
+//             spaceBetween={20}
+//             onSwiper={(swiper) => (swiperRef.current = swiper)}
+//             modules={[Navigation, Pagination, keyboard]}
+//           >
+//             {tempTrend.results.map((pop) => (
+//               <SwiperSlide className="relative cursor-pointer">
+//                 <Link to={`movie/${pop.id}`}>
+//                   <div className="group relative overflow-hidden rounded-x">
+//                     <img
+//                       src={pop.poster_path}
+//                       alt=""
+//                       className="object-cover h-full w-full transition-transform ease-in-out duration-500 group-hover:scale-125"
+//                     />
+
+//                     <div className="absolute inset-0 z-10 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none">
+//                       {/* The Circle Background with blur effect */}
+//                       <div className="h-16 w-16 rounded-full bg-white/20 backdrop-blur-sm shadow-lg flex items-center justify-center">
+//                         {/* The Heroicons Solid Play SVG */}
+//                         <svg
+//                           xmlns="http://www.w3.org/2000/svg"
+//                           viewBox="0 0 24 24"
+//                           fill="currentColor"
+//                           className="w-10 h-10 text-white ml-1"
+//                         >
+//                           <path
+//                             fillRule="evenodd"
+//                             d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z"
+//                             clipRule="evenodd"
+//                           />
+//                         </svg>
+//                       </div>
+//                     </div>
+
+//                     <div className="absolute top-3 left-3 flex items-center bg-black/70 rounded-xl text-sm px-2 py-1 z-30 space-x-1">
+//                       <svg
+//                         xmlns="http://www.w3.org/2000/svg"
+//                         viewBox="0 0 24 24"
+//                         fill="currentColor"
+//                         className="w-4 h-4 text-yellow-400"
+//                       >
+//                         <path
+//                           fillRule="evenodd"
+//                           d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+//                           clipRule="evenodd"
+//                         />
+//                       </svg>
+//                       <p>{pop.vote_average.toFixed(1)}</p>
+//                     </div>
+
+//                     <div className="absolute inset-0 flex flex-col items-center justify-end pb-3">
+//                       <p>{pop.title}</p>
+//                       <p className="text-sm text-slate-400">
+//                         {pop.release_date.slice(0, 4)}
+//                       </p>
+//                     </div>
+//                     <div className="absolute inset-0 bg-black/70 opacity-0 transition-opacity duration-500 hover:opacity-100  "></div>
+//                   </div>
+//                 </Link>
+//               </SwiperSlide>
+//             ))}
+//           </Swiper>
+//           <div className="absolute inset-0 z-10 flex items-center justify-between">
+//             <button
+//               onClick={() => swiperRef.current?.slidePrev()}
+//               className="bg-white text-black  p-2 rounded-3xl"
+//             >
+//               Prev
+//             </button>
+//             <button
+//               onClick={() => swiperRef.current?.slideNext()}
+//               className="bg-white text-black  p-2 rounded-3xl"
+//             >
+//               Next
+//             </button>
+//           </div>
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }
+
+// export default PopularMovie;
+
+
+
+function PopularMovie() {
+  const swiperRef = useRef(null);
+
+  // Guard clause in case data hasn't loaded yet
+
+  return (
+    <section>
+      <div className="px-6 xl:px-10 pt-24">
+        <h1 className="text-3xl font-bold pb-9 xl:px-5">Popular Movie</h1>
+        
+        {/* CONTAINER: relative + group (for button hover visibility) */}
+        <div className="relative group">
+          
+          <Swiper
+            slidesPerView={2} // Default for mobile
+            breakpoints={{
+                640: { slidesPerView: 3, spaceBetween: 15 },
+                1024: { slidesPerView: 5, spaceBetween: 20 },
+            }}
+            loop={true}
+            pagination={{ dynamicBullets: true, clickable: true }}
+            onSwiper={(swiper) => (swiperRef.current = swiper)}
+            modules={[Navigation, Pagination, Keyboard]}
+            className="w-full"
+          >
+            {tempTrend.results.map((pop) => (
+              <SwiperSlide key={pop.id} className="cursor-pointer">
+                <Link to={`movie/${pop.id}`}>
+                  {/* CARD WRAPPER: Added 'relative', fixed 'rounded-xl' */}
+                  <div className="relative group/card overflow-hidden rounded-xl aspect-[2/3]">
+                    
+                    {/* 1. BACKGROUND IMAGE */}
+                    <img
+                      src={pop.poster_path} // Assuming TMDB structure
+                      alt={pop.title}
+                      className="object-cover h-full w-full transition-transform ease-in-out duration-500 group-hover/card:scale-110"
+                    />
+
+                    {/* 2. PLAY BUTTON OVERLAY */}
+                    <div className="absolute inset-0 z-30 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover/card:opacity-100 pointer-events-none">
+                      <div className="h-16 w-16 rounded-full bg-white/20 backdrop-blur-sm shadow-lg flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-10 h-10 text-white ml-1">
+                          <path fillRule="evenodd" d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z" clipRule="evenodd" />
+                        </svg>
+                      </div>
+                    </div>
+
+                    {/* 3. RATING BADGE */}
+                    <div className="absolute top-3 left-3 z-30 flex items-center bg-black/70 rounded-xl text-sm px-2 py-1 space-x-1">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 text-yellow-400">
+                        <path fillRule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clipRule="evenodd" />
+                      </svg>
+                      <p className="text-white font-medium">{pop.vote_average ? pop.vote_average.toFixed(1) : 'N/A'}</p>
+                    </div>
+
+                    {/* 4. TEXT INFO - Added z-20 so it sits ON TOP of the black gradient */}
+                    <div className="absolute inset-0 flex flex-col items-center justify-end pb-4 z-20 text-center px-2">
+                      <p className="text-white font-semibold truncate w-full">{pop.title}</p>
+                      <p className="text-sm text-slate-300">
+                        {pop.release_date ? pop.release_date.slice(0, 4) : ''}
+                      </p>
+                    </div>
+
+                    {/* 5. BLACK GRADIENT HOVER - z-10 (Behind text, in front of image) */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-0 transition-opacity duration-500 group-hover/card:opacity-100 z-10"></div>
+                  
+                  </div>
+                </Link>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+
+          {/* --- NAVIGATION BUTTONS --- */}
+          {/* Prev Button */}
+          <button
+            onClick={() => swiperRef.current?.slidePrev()}
+            className="absolute top-1/2 -translate-y-1/2 left-0 z-40 p-3 bg-white/90 hover:bg-white text-black rounded-full shadow-xl opacity-0 group-hover:opacity-100 transition-all duration-300 -ml-4 xl:-ml-6"
+            aria-label="Previous Slide"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-6 h-6">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+            </svg>
+          </button>
+
+          {/* Next Button */}
+          <button
+            onClick={() => swiperRef.current?.slideNext()}
+            className="absolute top-1/2 -translate-y-1/2 right-0 z-40 p-3 bg-white/90 hover:bg-white text-black rounded-full shadow-xl opacity-0 group-hover:opacity-100 transition-all duration-300 -mr-4 xl:-mr-6"
+            aria-label="Next Slide"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-6 h-6">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+            </svg>
+          </button>
+
+        </div>
       </div>
-    </div>
+    </section>
   );
 }
 
 export default PopularMovie;
-
-// Import Swiper styles

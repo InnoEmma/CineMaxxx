@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-// console.log(trend.results.slice(0,12));
-
 function TrendingMovie() {
   const [trending, setTrending] = useState({});
   const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/original";
@@ -15,18 +13,17 @@ function TrendingMovie() {
       );
       const data = await res.json();
       setTrending(data);
-      //   console.log(data.results?.slice(0, 12));
+
     }
     FetchTrendingMovie();
   }, []);
 
-//   console.log(trending.results?.slice(0, 12).map((trend, index) => trend?.id));
   return (
     <section>
       <div className="xl:px-[70px] px-6 ">
         <h1 className="text-3xl font-bold mb-10 mt-16 ">Trending Movies</h1>
 
-        <div className="w-full wrapper grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 sm:grid-cols-3 gap-4">
+        <div className="w-full grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 sm:grid-cols-3 gap-4">
           {trending.results?.slice(0, 12).map((trend, index) => (
             <Link to={`movie/${trend.id}`} key={index}>
               <div
@@ -84,7 +81,7 @@ function TrendingMovie() {
                   </p>
                 </div>
 
-                {/* 3. Updated overlay to use inset-0 (cleaner than top-0 left-0) and group-hover */}
+
                 <div className="absolute inset-0 bg-black/70 flex flex-col items-center justify-end opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
               </div>
             </Link>
