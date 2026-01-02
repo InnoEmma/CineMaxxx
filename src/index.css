@@ -24,6 +24,17 @@
 }
 
 
+.mySwiper .swiper-pagination-bullet{
+  background-color: #524656;
+  opacity: 0.4;
+  width: 10px;
+  height: 10px;
+}
+
+.mySwiper .swiper-pagination-bullet-active{
+  background-color: purple;
+  opacity: 1;
+}
 
 @keyframes l3-0 {
   to {

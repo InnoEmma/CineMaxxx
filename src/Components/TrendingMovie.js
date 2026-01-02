@@ -10,6 +10,7 @@ function TrendingMovie() {
     async function FetchTrendingMovie() {
       const res = await fetch(
         `https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}&language=en-US`
+        
       );
       const data = await res.json();
       setTrending(data);
@@ -57,7 +58,7 @@ function TrendingMovie() {
                   </div>
                 </div>
 
-                <div className="absolute inset-0 flex-col flex items-start pl-3 justify-end">
+                <div className="absolute inset-0 flex-col flex items-start pl-3 justify-end z-20">
                   <p className="text-white font-bold">{trend.title}</p>
                   <p className="text-gray-300 text-sm mb-4">
                     {trend.release_date?.slice(0, 4)}
