@@ -519,19 +519,18 @@ function PopularMovie() {
 
         <div className="relative group">
           <Swiper
-            slidesPerView={5}
+            slidesPerView={2}
             spaceBetween={15}
-            slidesPerGroup={5}
+            slidesPerGroup={2}
             breakpoints={{
-              640: { slidesPerView: 3, spaceBetween: 15 },
-              1024: { slidesPerView: 5, spaceBetween: 20 },
+              640: { slidesPerView: 3, spaceBetween: 15  , slidesPerGroup:3},
+              1024: { slidesPerView: 5, spaceBetween: 20, slidesPerGroup: 5 },
             }}
             loop={true}
             pagination={{ dynamicBullets: true, clickable: true }}
             onSwiper={(swiper) => (swiperRef.current = swiper)}
             modules={[Navigation, Pagination, Keyboard]}
             className="w-full mySwiper"
-            
           >
             {popMovie.results?.map((pop) => (
               <SwiperSlide key={pop.id} className="cursor-pointer">
@@ -596,8 +595,6 @@ function PopularMovie() {
             ))}
           </Swiper>
 
-          {/* --- NAVIGATION BUTTONS --- */}
-          {/* Prev Button */}
           <button
             onClick={() => swiperRef.current?.slidePrev()}
             className="absolute top-1/2 -translate-y-1/2 left-0 z-40 p-3 bg-white/90 hover:bg-white text-black rounded-full shadow-xl opacity-0 group-hover:opacity-100 transition-all duration-300 -ml-4 xl:-ml-6"
