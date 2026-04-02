@@ -1,22 +1,22 @@
 // import Image1 from "../tempimage/Image1.jpg";
-import Image2 from "../tempimage/Image2.jpg";
-import Image3 from "../tempimage/Image3.jpg";
-import Image4 from "../tempimage/Image4.jpg";
-import Image5 from "../tempimage/Image5.jpg";
-import Image6 from "../tempimage/Image6.jpg";
-import Image7 from "../tempimage/Image7.jpg";
-import Image8 from "../tempimage/Image8.jpg";
-import Image9 from "../tempimage/Image9.jpg";
-import Image10 from "../tempimage/Image10.jpg";
-import Image11 from "../tempimage/Image11.jpg";
-import Image12 from "../tempimage/Image12.jpg";
-import image1 from "../tempimage/Image1.jpg";
-import image2 from "../tempimage/Image2.jpg";
-import image3 from "../tempimage/Image3.jpg";
+// import Image2 from "../tempimage/Image2.jpg";
+// import Image3 from "../tempimage/Image3.jpg";
+// import Image4 from "../tempimage/Image4.jpg";
+// import Image5 from "../tempimage/Image5.jpg";
+// import Image6 from "../tempimage/Image6.jpg";
+// import Image7 from "../tempimage/Image7.jpg";
+// import Image8 from "../tempimage/Image8.jpg";
+// import Image9 from "../tempimage/Image9.jpg";
+// import Image10 from "../tempimage/Image10.jpg";
+// import Image11 from "../tempimage/Image11.jpg";
+// import Image12 from "../tempimage/Image12.jpg";
+// import image1 from "../tempimage/Image1.jpg";
+// import image2 from "../tempimage/Image2.jpg";
+// import image3 from "../tempimage/Image3.jpg";
 
 // import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectCoverflow, Navigation, Pagination } from "swiper/modules";
+import {  Navigation, Pagination } from "swiper/modules";
 import { Link } from "react-router-dom";
 
 import React, { useEffect, useRef, useState } from "react";
