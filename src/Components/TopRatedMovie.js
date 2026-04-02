@@ -20,7 +20,7 @@ function TopRatedMovie() {
     }
     FetchTopMovie();
   }, []);
-  console.log(topMovie);
+  // console.log(topMovie);
 
   return (
     <section>
@@ -30,7 +30,7 @@ function TopRatedMovie() {
         </h1>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 lg:ml-16 ml-6 mr-6 lg:mr-16 ">
           {topMovie.results?.slice(0, 12).map((pop) => (
-            <Link to={`movie/${pop.id}`}>
+            <Link to={`movie/${pop.id}`} key={pop.id}>
               <div className="relative group overflow-hidden rounded-2xl cursor-pointer">
                 <img
                   src={`${IMAGE_BASE_URL}${pop.poster_path}`}

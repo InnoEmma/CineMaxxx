@@ -1,9 +1,9 @@
+
 function Movie() {
-    return (
-        <div className="bg-primaryBackGroundBlack text-primaryWhite p-80">
-            Movie
-        </div>
-    )
+  //   const movieSearch = useSearchParams
+  return(
+    <div>Movie</div>
+  )
 }
 
-export default Movie
+export default Movie;

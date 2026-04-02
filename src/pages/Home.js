@@ -4,6 +4,7 @@ import TrendingMovie from "../Components/TrendingMovie";
 import PopularMovie from "../Components/PopularMovie";
 import TopRatedMovie from "../Components/TopRatedMovie";
 import UpComingMovie from "../Components/UpComingMovie";
+import TvShowDetails from './TvShowDetails'
 
 function Home() {
   return (
@@ -13,6 +14,7 @@ function Home() {
       <PopularMovie />
       <TopRatedMovie />
       <UpComingMovie />
+      <TvShowDetails/>
     </div>
   );
 }

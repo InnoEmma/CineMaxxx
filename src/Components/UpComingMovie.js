@@ -518,7 +518,7 @@ export default function UpComingMovie() {
           </button>
           <button
             onClick={() => swiperRef.current.slidePrev()}
-            className="absolute top-1/2 left-0 z-40 -translate-y-1/2 bg-white/90 rounded-full p-3 text-black shadow-2xl opacity-0 group-hover:opacity-100 transition-all duration-300"
+            className="absolute top-1/2 left-0 z-40 -translate-y-1/2 bg-white/90 rounded-full p-3 text-black shadow-2xl opacity-0 group-hover:opacity-100 transition-all duration-300 -ml-6"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

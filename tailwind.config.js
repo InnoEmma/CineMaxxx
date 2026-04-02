@@ -9,7 +9,7 @@ module.exports = {
         primaryOverviewPurple: "rgb(145, 91, 190)",
         primaryTagsPurple: "rgb(76, 8, 125)",
         primaryBackGroundBlack: "rgb(0, 0, 0)",
-        primaryWatchTrailerPurple: "rgb(48, 8, 79)",
+        primaryWatchTrailerPurple: "rgb(47, 7, 76)",
         primaryStarYellow: "rgb(253, 199, 0)",
       },
     },
