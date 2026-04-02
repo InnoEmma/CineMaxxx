@@ -1,4 +1,4 @@
-import Navbar from "../Components/NavBar";
+// import Navbar from "../Components/NavBar";
 import Hero from "../Components/Hero";
 import TrendingMovie from "../Components/TrendingMovie";
 import PopularMovie from "../Components/PopularMovie";
