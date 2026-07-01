@@ -16,7 +16,7 @@
 
 // import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import {  Navigation, Pagination } from "swiper/modules";
+import { Navigation, Pagination } from "swiper/modules";
 import { Link } from "react-router-dom";
 
 import React, { useEffect, useRef, useState } from "react";
@@ -403,7 +403,7 @@ export default function UpComingMovie() {
   useEffect(function () {
     async function FetchUpComingMovie() {
       const res = await fetch(
-        `https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}&language=en-US`
+        `https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}&language=en-US`,
       );
       const data = await res.json();
       setUpComeMovie(data);
@@ -414,7 +414,13 @@ export default function UpComingMovie() {
   const swiperRef = useRef(null);
   return (
     <section>
-      <h1 className="ml-16 font-bold text-3xl mt-20 mb-10">UpComingMovie</h1>
+      {/* <h1 className="ml-16 font-bold text-3xl mt-20 mb-10">UpComingMovie</h1> */}
+      <div className="flex justify-between items-center">
+        <h1 className="text-3xl font-bold ml-6 lg:ml-14 mt-20 mb-10">
+          Upcoming Movie
+        </h1>
+        <button className=" mr-16 text-primaryPurple">Explore all</button>
+      </div>
       <div className="mx-10 relative group">
         <Swiper
           slidesPerGroup={2}
@@ -450,7 +456,7 @@ export default function UpComingMovie() {
                   />
                   <div className="absolute inset-0 flex items-center justify-end flex-col pb-3 z-20">
                     <p>{upCome.title}</p>
-                    <p>{upCome.release_date.slice(0,4)}</p>
+                    <p>{upCome.release_date.slice(0, 4)}</p>
                   </div>
 
                   <div className="absolute left-3 top-3 flex items-center space-x-1 z-20 bg-black/70 py-1 px-2 rounded-3xl text-sm font-bold">

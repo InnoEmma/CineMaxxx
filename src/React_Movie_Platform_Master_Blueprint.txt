@@ -1,0 +1,129 @@
+REACT MOVIE PLATFORM MASTER BLUEPRINT
+
+Project Goal
+
+Build a production-style movie platform that emphasizes React
+fundamentals and advanced patterns. Primary learning goals: -
+useEffect - Data fetching - Custom hooks - useReducer - Context API -
+Refs - Portals - Hover interactions - Infinite scrolling - Routing -
+Performance optimization - Error handling - State persistence
+
+Concept
+
+Think of the application as a mix of Netflix, IMDb and Letterboxd.
+
+Core Pages
+
+1.  Home
+    -   Trending
+    -   Popular
+    -   Top Rated
+    -   Upcoming
+    -   Continue Watching
+    -   Recommended
+2.  Search
+3.  Movie Details
+4.  Watchlist
+5.  Favorites
+6.  History
+7.  Downloads
+8.  Settings
+9.  Profile (local only)
+
+Interactive Features
+
+-   Search with debounce.
+-   Recent searches.
+-   Hover movie cards to reveal actions.
+-   Add/remove Watchlist.
+-   Add/remove Favorites.
+-   Personal rating (stored locally).
+-   Mark Watched.
+-   Continue Watching progress.
+-   Review editor (local data).
+-   Filter and sorting.
+-   Infinite scrolling.
+-   Trailer modal.
+-   Keyboard shortcuts.
+-   Theme switching.
+-   Toast notifications.
+-   Skeleton loaders.
+-   Optimistic UI for local actions.
+
+Movie Details
+
+Fetch independently: - Details - Cast - Reviews - Similar -
+Recommendations - Images - Videos
+
+Watching
+
+Embed playback in a modal or page using an embed provider such as
+SuperEmbed by constructing the provider URL from the selected movie id.
+Treat it as an external embed and isolate it in an iframe component.
+
+Downloads
+
+Since downloading copyrighted movies is generally not appropriate,
+implement a Download Center that stores: - offline notes - posters -
+trailers when legally available - links to official download/purchase
+providers This still exercises async jobs, progress bars and reducers.
+
+Hooks to Build
+
+useMovies useMovie useSearch useDebounce useInfiniteScroll
+useIntersection useHover useLocalStorage useTheme useKeyboard useModal
+useDocumentTitle useFetch usePrevious useOnlineStatus
+
+Refs Practice
+
+-   Autofocus search
+-   Scroll to top
+-   Trailer player control
+-   Click outside modal
+-   Preserve scroll position
+-   Measure card size
+
+Reducer State
+
+movies search watchlist favorites ratings history downloads ui loading
+errors
+
+Performance
+
+-   React.memo
+-   useMemo
+-   useCallback
+-   Lazy routes
+-   Code splitting
+-   Image lazy loading
+
+Suggested Folder Structure
+
+src/ api/ services/ hooks/ context/ reducer/ pages/ components/ utils/
+assets/
+
+Milestones
+
+1.  UI only
+2.  Routing
+3.  Homepage fetching
+4.  Search
+5.  Movie details
+6.  Watchlist/Favorites
+7.  Ratings
+8.  Reviews
+9.  Continue watching
+10. Embedded playback
+11. Infinite scroll
+12. Filters
+13. Settings
+14. Custom hooks refactor
+15. Performance optimization
+16. Final polish
+
+Definition of Done
+
+By completion you should comfortably understand: - when to use
+useEffect - effect cleanup - AbortController - dependency arrays -
+reducer architecture - reusable hooks - refs - portals - async state -
+caching ideas - pagination - optimistic updates - component composition

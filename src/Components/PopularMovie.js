@@ -14,18 +14,6 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
-// import Image1 from "../tempimage/Image1.jpg";
-// import Image2 from "../tempimage/Image2.jpg";
-// import Image3 from "../tempimage/Image3.jpg";
-// import Image4 from "../tempimage/Image4.jpg";
-// import Image5 from "../tempimage/Image5.jpg";
-// import Image6 from "../tempimage/Image6.jpg";
-// import Image7 from "../tempimage/Image7.jpg";
-// import Image8 from "../tempimage/Image8.jpg";
-// import Image9 from "../tempimage/Image9.jpg";
-// import Image10 from "../tempimage/Image10.jpg";
-// import Image11 from "../tempimage/Image11.jpg";
-// import Image12 from "../tempimage/Image12.jpg";
 import { Link } from "react-router-dom";
 // import { keyboard } from "@testing-library/user-event/dist/keyboard";
 
@@ -515,7 +503,11 @@ function PopularMovie() {
   return (
     <section>
       <div className="px-6 xl:px-10 pt-24">
-        <h1 className="text-3xl font-bold pb-9 xl:px-5">Popular Movie</h1>
+        {/* <h1 className="text-3xl font-bold pb-9 xl:px-5">Popular Movie</h1> */}
+        <div className="flex justify-between items-center">
+          <h1 className="text-3xl font-bold  pb-9 xl:px-5">Popular Movies</h1>
+          <button className=" text-primaryPurple">Explore all</button>
+        </div>
 
         <div className="relative group">
           <Swiper

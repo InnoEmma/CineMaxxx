@@ -1,9 +1,6 @@
-
 import { Link } from "react-router-dom";
 // import { keyboard } from "@testing-library/user-event/dist/keyboard";
 import { useEffect, useState } from "react";
-
-
 
 const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/original";
 const API_KEY = "f419fd0513194bb3e5a8781bc1d4f30e";
@@ -13,7 +10,7 @@ function TopRatedMovie() {
   useEffect(function () {
     async function FetchTopMovie() {
       const res = await fetch(
-        `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}&language=en_US`
+        `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}&page=1&language=en_US`,
       );
       const data = await res.json();
       setTopMovie(data);
@@ -25,9 +22,15 @@ function TopRatedMovie() {
   return (
     <section>
       <div>
-        <h1 className="text-3xl ml-6 font-bold lg:ml-14 mt-20 mb-10">
+        {/* <h1 className="text-3xl ml-6 font-bold lg:ml-14 mt-20 mb-10">
           Top Rated Movie
-        </h1>
+        </h1> */}
+        <div className="flex justify-between items-center">
+          <h1 className="text-3xl font-bold ml-6 lg:ml-14 mt-20 mb-10">
+            Top Rated Movie
+          </h1>
+          <button className=" mr-16 text-primaryPurple">Explore all</button>
+        </div>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 lg:ml-16 ml-6 mr-6 lg:mr-16 ">
           {topMovie.results?.slice(0, 12).map((pop) => (
             <Link to={`movie/${pop.id}`} key={pop.id}>

@@ -9,12 +9,10 @@ function TrendingMovie() {
   useEffect(function () {
     async function FetchTrendingMovie() {
       const res = await fetch(
-        `https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}&language=en-US`
-        
+        `https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}&language=en-US`,
       );
       const data = await res.json();
       setTrending(data);
-
     }
     FetchTrendingMovie();
   }, []);
@@ -22,7 +20,10 @@ function TrendingMovie() {
   return (
     <section>
       <div className="xl:px-[70px] px-6 ">
-        <h1 className="text-3xl font-bold mb-10 mt-16 ">Trending Movies</h1>
+        <div className="flex justify-between items-center">
+          <h1 className="text-3xl font-bold  mb-10 mt-16 ">Trending Movies</h1>
+          <button className=" text-primaryPurple">Explore all</button>
+        </div>
 
         <div className="w-full grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 sm:grid-cols-3 gap-4">
           {trending.results?.slice(0, 12).map((trend, index) => (
@@ -81,7 +82,6 @@ function TrendingMovie() {
                     {Number(trend.vote_average).toFixed(1)}
                   </p>
                 </div>
-
 
                 <div className="absolute inset-0 bg-black/70 flex flex-col items-center justify-end opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
               </div>

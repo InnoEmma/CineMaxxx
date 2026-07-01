@@ -63,7 +63,7 @@ function Hero() {
         //   `https://api.themoviedb.org/3/trending/all/day?api_key=${API_KEY}&language=en-US`
         // );
         const res = await fetch(
-          `https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}&language=en-US`
+          `https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}&language=en-US`,
         );
         const data = await res.json();
         const finalRes = data.results[0];
@@ -94,24 +94,29 @@ function Hero() {
       }, 10000);
       return () => clearInterval(interval);
     },
-    [allMovie]
+    [allMovie],
   );
 
   useEffect(
     function () {
       async function FetchYoutubeMovie() {
         const res = await fetch(
-          `https://api.themoviedb.org/3/movie/${heroMovie.id}/videos?api_key=${API_KEY}&language=en-US`
+          `https://api.themoviedb.org/3/movie/${heroMovie.id}/videos?api_key=${API_KEY}&language=en-US`,
         );
         const data = await res.json();
         setYoutube(data);
       }
       FetchYoutubeMovie();
     },
-    [heroMovie.id]
+    [heroMovie.id],
   );
-  console.log(YTB);
-  // console.log(heroMovie.id);
+
+  const the_link = youtube.results
+    ?.filter((e) => e.type === "Trailer" && e.site === "YouTube")
+    ?.sort(
+      (a, b) => (b.official === true ? 1 : 0) - (a.official === true ? 1 : 0),
+    )[0]?.key;
+  // console.log(the_link);
 
   return (
     <div className="w-full">
@@ -150,9 +155,9 @@ function Hero() {
             {heroMovie.title?.length < 24
               ? heroMovie.title
               : heroMovie.title?.slice(0, 4) + "..." ||
-                heroMovie.name?.length < 24
-              ? heroMovie.name
-              : heroMovie.name?.slice(0, 4) + "..."}
+                  heroMovie.name?.length < 24
+                ? heroMovie.name
+                : heroMovie.name?.slice(0, 4) + "..."}
           </h1>
           <div className="flex items-center top-96 mb-5 gap-4">
             <p>
@@ -176,14 +181,22 @@ function Hero() {
             Read More
           </Link>
           {/* to={`https://www.youtube.com/watch?v=${}`} */}
-          <Link to={`https://www.youtube.com/watch?v=${YTB}`}>
-            <button className="bg-primaryWatchTrailerPurple cursor-pointer px-6 py-[9px] rounded-md text-lg font-medium flex gap-3 items-center border-purple-500 border  ">
-              <PlayCircle
-              // color="black"
-              // className="absolute top-[33px]  left-1 z-20"
-              />
-              Watch Trailer
-            </button>
+          <Link to={`https://www.youtube.com/watch?v=${the_link}`}>
+            {the_link ? (
+              <button
+                className={`bg-primaryWatchTrailerPurple cursor-pointer px-6 py-[9px] rounded-md text-lg font-medium flex gap-3 items-center border-purple-500 border ${the_link ? "" : "cursor-not-allowed"} `}
+              >
+                <PlayCircle
+                // color="black"
+                // className="absolute top-[33px]  left-1 z-20"
+                />
+                Watch Trailer
+              </button>
+            ) : (
+              <button disabled className={`bg-primaryWatchTrailerPurple cursor-pointer px-6 py-[9px] rounded-md text-lg font-medium flex gap-3 items-center border-purple-500 border ${the_link ? "" : "cursor-not-allowed "} ` }>
+                No trailer
+              </button>
+            )}
           </Link>
           {/* <Link className="bg-primaryWatchTrailerPurple px-7 py-3 rounded-md font-medium">
             Watch Trailer

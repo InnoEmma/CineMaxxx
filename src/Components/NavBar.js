@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink , Link} from "react-router-dom";
 import Search from "./Search";
 
 function NavBar() {
@@ -11,10 +11,12 @@ function NavBar() {
   }
   return (
     <nav className="flex gap-4 items-ce justify-between decoration py-4 px-20 fixed w-full shadow-md top-0 left-0 bg-transparent z-50 backdrop-blur-md ">
-      <h2 className="text-2xl font-bold w">
-        <span className="">Cine</span>
-        <span className="text-primaryPurple">Maxxx</span>
-      </h2>
+      <Link to={'/'}>
+        <h2 className="text-2xl font-bold w">
+          <span className="">Cine</span>
+          <span className="text-primaryPurple">Maxxx</span>
+        </h2>
+      </Link>
       <div className="flex gap-8 text-[18px] leading-7 font-normal">
         <NavLink to="/" className={NavLinkClass}>
           <h3>Home</h3>

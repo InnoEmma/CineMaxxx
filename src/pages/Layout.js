@@ -10,7 +10,7 @@ function Layout() {
         <NavBar />
         {/* <h1>There we Goo</h1> */}
         <Outlet />
-        <Footer />
+        {/* <Footer /> */}
       </>
     </div>
   );

@@ -5,6 +5,7 @@ import PopularMovie from "../Components/PopularMovie";
 import TopRatedMovie from "../Components/TopRatedMovie";
 import UpComingMovie from "../Components/UpComingMovie";
 import TvShowDetails from './TvShowDetails'
+import Footer from '../Components/Footer'
 
 function Home() {
   return (
@@ -14,7 +15,8 @@ function Home() {
       <PopularMovie />
       <TopRatedMovie />
       <UpComingMovie />
-      <TvShowDetails/>
+      <Footer/>
+      {/* <TvShowDetails/> */}
     </div>
   );
 }
