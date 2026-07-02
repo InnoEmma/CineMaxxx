@@ -27,8 +27,7 @@ Core Pages
 5.  Favorites
 6.  History
 7.  Downloads
-8.  Settings
-9.  Profile (local only)
+8.  Profile (local only)
 
 Interactive Features
 

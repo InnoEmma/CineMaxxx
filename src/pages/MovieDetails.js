@@ -12,6 +12,9 @@ function MovieDetails() {
   const navigate = useNavigate();
 
   const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/original";
+
+  const POSTER_BASE_URL = "https://image.tmdb.org/t/p/w500";
+  const BACKDROP_BASE_URL = "https://image.tmdb.org/t/p/w1280";
   const [activeTab, setActiveTab] = useState(0);
   const [movie, setMovie] = useState({});
   const [isLoading, setIsLoading] = useState(true);
@@ -245,6 +248,8 @@ function MovieDetails() {
             style={{ height: "100vh" }}
             // clipPath: "inset(0% 0% 20% 0%)"
             className="object-cover pt-20 sm:pt-6 object-center   w-full h-full "
+            loading="lazy"
+            decoding="async"
           />
           {/* <div className="absolute inset-0 bg-black/30"></div> */}
           <div className="absolute inset-0 bg-gradient-to-l from-transparent to-black via-transparent via-80%"></div>
@@ -262,6 +267,8 @@ function MovieDetails() {
               src={`${IMAGE_BASE_URL}${movie?.poster_path}`}
               alt="poster"
               className="h-full w-full object-cover object-center rounded-xl"
+              loading="lazy"
+              decoding="async"
             />
           </div>
           <div className="ml-5 mt-40">
