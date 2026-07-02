@@ -4,40 +4,7 @@ import { PlayCircle } from "lucide-react";
 const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/original";
 const API_KEY = "f419fd0513194bb3e5a8781bc1d4f30e";
 
-// const YT = {
-//   id: 550,
-//   results: [
-//     {
-//       iso_639_1: "en",
-//       iso_3166_1: "US",
-//       name: "Fight Club (1999) Trailer - Starring Brad Pitt, Edward Norton, Helena Bonham Carter",
-//       key: "O-b2VfmmbyA",
-//       site: "YouTube",
-//       size: 720,
-//       type: "Trailer",
-//       official: false,
-//       published_at: "2016-03-05T02:03:14.000Z",
-//       id: "639d5326be6d88007f170f44",
-//     },
-//     {
-//       iso_639_1: "en",
-//       iso_3166_1: "US",
-//       name: "#TBT Trailer",
-//       key: "BdJKm16Co6M",
-//       site: "YouTube",
-//       size: 1080,
-//       type: "Trailer",
-//       official: true,
-//       published_at: "2014-10-02T19:20:22.000Z",
-//       id: "5c9294240e0a267cd516835f",
-//     },
-//   ],
-// };
 
-// const ytb = YT.results[0].key;
-// console.log(ytb);
-
-// console.log(backgroundImage);
 function Hero() {
   // return <div className="p-80 border">Hero</div>
   const [heroMovie, setHeroMovie] = useState({}); // ALSO CALLED FIRSTMOVIE AND SETFRISTMOVIE
